@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EjercicioLecturaFIchero_1_Maven:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EjercicioLecturaFIchero_1_Maven_jar</output-path>
+    <root id="archive" name="EjercicioLecturaFIchero_1_Maven.jar">
+      <element id="module-output" name="EjercicioLecturaFIchero_1_Maven" />
+    </root>
+  </artifact>
+</component>
