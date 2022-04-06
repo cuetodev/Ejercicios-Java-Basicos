@@ -6,6 +6,7 @@ import com.cuetodev.bs2.models.CiudadService;
 import com.cuetodev.bs2.models.Persona;
 import com.cuetodev.bs2.models.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +21,21 @@ import java.util.List;
 public class Controlador2 {
     @Autowired
     PersonaService personaService;
+
     @Autowired
     CiudadService ciudadService;
+
+    @Autowired
+    @Qualifier("bean1")
+    Persona persona1;
+
+    @Autowired
+    @Qualifier("bean2")
+    Persona persona2;
+
+    @Autowired
+    @Qualifier("bean3")
+    Persona persona3;
 
     @GetMapping("/getPersona")
     public Persona getPersona() {
@@ -36,16 +50,20 @@ public class Controlador2 {
 
     @GetMapping("/bean/{bean}")
     public Persona getBeanAndReturnPersona(@PathVariable String bean) {
-        Persona persona;
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(BeanConfig.class);
-        if (bean.equals("bean1")) {
-            persona = ctx.getBean("bean1", Persona.class);
-            return persona;
-        } else if (bean.equals("bean2")) {
-            persona = ctx.getBean("bean2", Persona.class);
-            return persona;
+        switch(bean) {
+            case "bean1" -> {
+                return persona1;
+            }
+            case "bean2" -> {
+                return persona2;
+            }
+            case "bean3" -> {
+                return persona3;
+            }
+            default -> {
+                return new Persona();
+            }
         }
-        persona = ctx.getBean("bean3", Persona.class);
-        return persona;
+
     }
 }
