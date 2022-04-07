@@ -1,0 +1,7 @@
+---
+var1: "CONTENIDO DE VALOR1"
+var2: 100
+
+# con application.properties sería:
+#  var1 = CONTENIDO DE VALOR1
+#  var2 = 100
