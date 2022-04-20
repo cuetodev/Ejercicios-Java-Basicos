@@ -1,7 +1,6 @@
 package com.cuetodev.db1.Persona.infrastructure.repository.port;
 
 import com.cuetodev.db1.Persona.domain.Persona;
-import com.cuetodev.db1.Persona.infrastructure.controller.dto.output.PersonaOutputDTO;
 
 import java.util.List;
 

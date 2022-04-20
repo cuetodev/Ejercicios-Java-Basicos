@@ -1,0 +1,9 @@
+2022-04-07 13:52:53.917  INFO 15888 --- [main] com.cuetodev.bs5.Bs5Application          : Starting Bs5Application using Java 17.0.2 on L2203030 with PID 15888 (C:\Users\david.cueto\Desktop\Practicas\Proyectos Intellij\SpringBoot\bs5\target\classes started by david.cueto in C:\Users\david.cueto\Desktop\Practicas\Proyectos Intellij\SpringBoot\bs5)
+2022-04-07 13:52:53.920  INFO 15888 --- [main] com.cuetodev.bs5.Bs5Application          : No active profile set, falling back to 1 default profile: "default"
+2022-04-07 13:52:54.723  INFO 15888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-07 13:52:54.742  INFO 15888 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-07 13:52:54.742  INFO 15888 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-07 13:52:54.819  INFO 15888 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-07 13:52:54.819  INFO 15888 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 849 ms
+2022-04-07 13:52:55.174  INFO 15888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-07 13:52:55.185  INFO 15888 --- [main] com.cuetodev.bs5.Bs5Application          : Started Bs5Application in 1.69 seconds (JVM running for 2.061)

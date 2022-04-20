@@ -1,17 +1,17 @@
 package com.cuetodev.db1.Persona.infrastructure.controller;
 
+import com.cuetodev.db1.Persona.application.errorhandling.NotFoundException;
+import com.cuetodev.db1.Persona.application.errorhandling.UnprocesableException;
 import com.cuetodev.db1.Persona.application.port.PersonaPort;
 import com.cuetodev.db1.Persona.domain.Persona;
 import com.cuetodev.db1.Persona.domain.PersonaList;
 import com.cuetodev.db1.Persona.infrastructure.controller.dto.input.PersonaInputDTO;
 import com.cuetodev.db1.Persona.infrastructure.controller.dto.output.PersonaOutputDTO;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +33,17 @@ public class PersonaController {
     public ResponseEntity<?> insertPersona(@RequestBody PersonaInputDTO personaInputDTO) {
         // Cambio mi InputDTO a la entidad Persona
         Persona persona = personaInputDTO.convertInputDtoToEntity();
+        Persona personaRecibida;
+
+        try {
+            personaRecibida = personaPort.insertPerson(persona);
+        } catch (Exception e) {
+            throw new UnprocesableException("Validación de campos errónea");
+        }
 
         // Llamo al insert que tengo en la clase del caso de uso del application
         // este método accederá al del repositorio que se encargará de realizar la consulta
-        return new ResponseEntity<>(personaPort.insertPerson(persona), HttpStatus.OK);
+        return new ResponseEntity<>(personaRecibida, HttpStatus.OK);
     }
 
     /*
@@ -51,7 +58,7 @@ public class PersonaController {
         try {
             personaOutputDTO = new PersonaOutputDTO(personaPort.findPersonaById(id));
         } catch (Exception e) {
-            return new ResponseEntity<>("Persona con ID: " + id + ", no encontrada.", HttpStatus.NOT_FOUND);
+            throw new NotFoundException("Persona con ID: " + id + ", no encontrada.");
         }
         return new ResponseEntity<>(personaOutputDTO, HttpStatus.OK);
     }
@@ -124,7 +131,7 @@ public class PersonaController {
         }
 
         if (numberOfResults != 1) {
-            return new ResponseEntity<>("Persona no encontrada", HttpStatus.NOT_FOUND);
+            throw new NotFoundException("Persona con ID: " + id + ", no encontrada.");
         }
 
         return new ResponseEntity<>("Persona borrada correctamente", HttpStatus.OK);
@@ -132,7 +139,7 @@ public class PersonaController {
 
     /*
     --------------
-        UPDATE - En el update estoy borrando el usuario actual para insertar uno nuevo con todos los campos cambiados
+        UPDATE
     --------------
     */
 
@@ -142,7 +149,7 @@ public class PersonaController {
             Persona personaOriginal = personaPort.findPersonaById(id);
             personaPort.updatePerson(personaOriginal, personaInputDTO);
         } catch (Exception e) {
-            return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
+            throw new UnprocesableException("Validación de campos errónea");
         }
 
         return new ResponseEntity<>("", HttpStatus.OK);

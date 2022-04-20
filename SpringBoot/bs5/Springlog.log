@@ -1,0 +1,27 @@
+2022-04-07 13:49:31.465  INFO 17704 --- [main] com.cuetodev.bs5.Bs5Application          : Starting Bs5Application using Java 17.0.2 on L2203030 with PID 17704 (C:\Users\david.cueto\Desktop\Practicas\Proyectos Intellij\SpringBoot\bs5\target\classes started by david.cueto in C:\Users\david.cueto\Desktop\Practicas\Proyectos Intellij\SpringBoot\bs5)
+2022-04-07 13:49:31.470  INFO 17704 --- [main] com.cuetodev.bs5.Bs5Application          : No active profile set, falling back to 1 default profile: "default"
+2022-04-07 13:49:32.277  INFO 17704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-07 13:49:32.295  INFO 17704 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-07 13:49:32.296  INFO 17704 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-07 13:49:32.379  INFO 17704 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-07 13:49:32.380  INFO 17704 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 855 ms
+2022-04-07 13:49:32.677  INFO 17704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-07 13:49:32.688  INFO 17704 --- [main] com.cuetodev.bs5.Bs5Application          : Started Bs5Application in 1.715 seconds (JVM running for 2.04)
+2022-04-07 13:50:21.521  INFO 10432 --- [main] com.cuetodev.bs5.Bs5Application          : Starting Bs5Application using Java 17.0.2 on L2203030 with PID 10432 (C:\Users\david.cueto\Desktop\Practicas\Proyectos Intellij\SpringBoot\bs5\target\classes started by david.cueto in C:\Users\david.cueto\Desktop\Practicas\Proyectos Intellij\SpringBoot\bs5)
+2022-04-07 13:50:21.525  INFO 10432 --- [main] com.cuetodev.bs5.Bs5Application          : No active profile set, falling back to 1 default profile: "default"
+2022-04-07 13:50:22.316  INFO 10432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-07 13:50:22.325  INFO 10432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-07 13:50:22.326  INFO 10432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-07 13:50:22.396  INFO 10432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-07 13:50:22.396  INFO 10432 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 815 ms
+2022-04-07 13:50:22.693  INFO 10432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-07 13:50:22.702  INFO 10432 --- [main] com.cuetodev.bs5.Bs5Application          : Started Bs5Application in 1.538 seconds (JVM running for 1.846)
+2022-04-07 13:51:21.080  INFO 13352 --- [main] com.cuetodev.bs5.Bs5Application          : Starting Bs5Application using Java 17.0.2 on L2203030 with PID 13352 (C:\Users\david.cueto\Desktop\Practicas\Proyectos Intellij\SpringBoot\bs5\target\classes started by david.cueto in C:\Users\david.cueto\Desktop\Practicas\Proyectos Intellij\SpringBoot\bs5)
+2022-04-07 13:51:21.084  INFO 13352 --- [main] com.cuetodev.bs5.Bs5Application          : No active profile set, falling back to 1 default profile: "default"
+2022-04-07 13:51:21.845  INFO 13352 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-07 13:51:21.854  INFO 13352 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-07 13:51:21.855  INFO 13352 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-07 13:51:21.921  INFO 13352 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-07 13:51:21.921  INFO 13352 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 780 ms
+2022-04-07 13:51:22.205  INFO 13352 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-07 13:51:22.212  INFO 13352 --- [main] com.cuetodev.bs5.Bs5Application          : Started Bs5Application in 1.488 seconds (JVM running for 1.847)

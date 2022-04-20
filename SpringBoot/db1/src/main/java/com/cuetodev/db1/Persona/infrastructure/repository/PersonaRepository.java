@@ -1,14 +1,13 @@
 package com.cuetodev.db1.Persona.infrastructure.repository;
 
+import com.cuetodev.db1.Persona.application.errorhandling.NotFoundException;
+import com.cuetodev.db1.Persona.application.errorhandling.UnprocesableException;
 import com.cuetodev.db1.Persona.domain.Persona;
-import com.cuetodev.db1.Persona.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.cuetodev.db1.Persona.infrastructure.repository.jpa.PersonaRepositoryJPA;
 import com.cuetodev.db1.Persona.infrastructure.repository.port.PersonaRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -24,8 +23,8 @@ public class PersonaRepository implements PersonaRepositoryPort {
         return persona;
     }
 
-    public Persona findPersonaById(int id) throws Exception {
-        return personaRepositoryJPA.findById(id).orElseThrow(() -> new Exception("Id no encontrada"));
+    public Persona findPersonaById(int id) throws NotFoundException {
+        return personaRepositoryJPA.findById(id).orElseThrow(() -> new NotFoundException("Id no encontrada"));
     }
 
     public List<Persona> findPersonaByUsuario(String usuario) throws Exception {
@@ -47,7 +46,14 @@ public class PersonaRepository implements PersonaRepositoryPort {
     }
 
     @Override
-    public Persona updatePerson(Persona personaActualizada) throws Exception {
-        return personaRepositoryJPA.save(personaActualizada);
+    public Persona updatePerson(Persona personaActualizada) throws UnprocesableException {
+        Persona persona;
+        try {
+            persona = personaRepositoryJPA.save(personaActualizada);
+        } catch (UnprocesableException e) {
+            throw new UnprocesableException("Validación de campos no completada");
+        }
+
+        return persona;
     }
 }
