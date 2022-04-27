@@ -3,7 +3,7 @@ package com.cuetodev.ej3_1.Profesor.infrastructure.repository;
 import com.cuetodev.ej3_1.Profesor.domain.Profesor;
 import com.cuetodev.ej3_1.Profesor.infrastructure.repository.jpa.ProfesorRepositoryJPA;
 import com.cuetodev.ej3_1.Profesor.infrastructure.repository.port.ProfesorRepositoryPort;
-import com.cuetodev.ej3_1.errorhandling.NotFoundException;
+import com.cuetodev.ej3_1.ErrorHandling.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

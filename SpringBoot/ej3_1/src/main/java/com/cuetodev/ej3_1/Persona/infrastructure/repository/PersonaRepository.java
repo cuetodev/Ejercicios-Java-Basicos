@@ -1,7 +1,7 @@
 package com.cuetodev.ej3_1.Persona.infrastructure.repository;
 
-import com.cuetodev.ej3_1.errorhandling.NotFoundException;
-import com.cuetodev.ej3_1.errorhandling.UnprocesableException;
+import com.cuetodev.ej3_1.ErrorHandling.NotFoundException;
+import com.cuetodev.ej3_1.ErrorHandling.UnprocesableException;
 import com.cuetodev.ej3_1.Persona.domain.Persona;
 import com.cuetodev.ej3_1.Persona.infrastructure.repository.jpa.PersonaRepositoryJPA;
 import com.cuetodev.ej3_1.Persona.infrastructure.repository.port.PersonaRepositoryPort;

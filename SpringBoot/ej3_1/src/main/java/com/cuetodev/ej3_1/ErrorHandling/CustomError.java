@@ -1,4 +1,4 @@
-package com.cuetodev.ej3_1.errorhandling;
+package com.cuetodev.ej3_1.ErrorHandling;
 
 import lombok.Data;
 

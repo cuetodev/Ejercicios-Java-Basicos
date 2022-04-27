@@ -1,10 +1,12 @@
 package com.cuetodev.ej3_1.Persona.infrastructure.controller;
 
 import com.cuetodev.ej3_1.Estudiante.domain.Estudiante;
+import com.cuetodev.ej3_1.Feign.IFeignServer;
 import com.cuetodev.ej3_1.Persona.infrastructure.controller.dto.output.PersonaFullOutPutDTO;
 import com.cuetodev.ej3_1.Profesor.domain.Profesor;
-import com.cuetodev.ej3_1.errorhandling.NotFoundException;
-import com.cuetodev.ej3_1.errorhandling.UnprocesableException;
+import com.cuetodev.ej3_1.Profesor.infrastructure.controller.dto.output.ProfesorOutputDTO;
+import com.cuetodev.ej3_1.ErrorHandling.NotFoundException;
+import com.cuetodev.ej3_1.ErrorHandling.UnprocesableException;
 import com.cuetodev.ej3_1.Persona.application.port.PersonaPort;
 import com.cuetodev.ej3_1.Persona.domain.Persona;
 import com.cuetodev.ej3_1.Persona.domain.PersonaList;
@@ -14,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -174,5 +178,42 @@ public class PersonaController {
         }
 
         return new ResponseEntity<>("", HttpStatus.OK);
+    }
+
+    /*
+    --------------------
+        RestTemplate
+    --------------------
+    */
+
+    @GetMapping("profesorRestTemplate/{id}")
+    ResponseEntity<?> getProfesor(@PathVariable String id) {
+        ResponseEntity<ProfesorOutputDTO> responseEntity = new RestTemplate().getForEntity("http://localhost:8081/profesor/" + id, ProfesorOutputDTO.class);
+
+        if (responseEntity.getStatusCode() == HttpStatus.OK) {
+            return new ResponseEntity<>(responseEntity.getBody(), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>("Petición inválida", HttpStatus.BAD_REQUEST);
+    }
+
+    /*
+    -------------
+        Feign
+    -------------
+    */
+
+    @Autowired
+    IFeignServer iFeignServer;
+
+    @GetMapping("profesorFeign/{id}")
+    ResponseEntity<?> getProfesorFeign(@PathVariable String id) {
+        ResponseEntity<?> responseEntity = iFeignServer.findProfesorByID(id, "simple");
+
+        if (responseEntity.getStatusCode() == HttpStatus.OK) {
+            return new ResponseEntity<>(responseEntity.getBody(), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>("Petición inválida", HttpStatus.BAD_REQUEST);
     }
 }

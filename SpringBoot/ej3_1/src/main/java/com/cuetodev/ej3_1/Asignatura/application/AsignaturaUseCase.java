@@ -3,7 +3,7 @@ package com.cuetodev.ej3_1.Asignatura.application;
 import com.cuetodev.ej3_1.Asignatura.application.port.AsignaturaPort;
 import com.cuetodev.ej3_1.Asignatura.domain.Asignatura;
 import com.cuetodev.ej3_1.Asignatura.infrastructure.repository.port.AsignaturaRepositoryPort;
-import com.cuetodev.ej3_1.errorhandling.NotFoundException;
+import com.cuetodev.ej3_1.ErrorHandling.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

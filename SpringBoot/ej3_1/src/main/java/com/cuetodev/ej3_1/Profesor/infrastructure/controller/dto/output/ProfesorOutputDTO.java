@@ -3,8 +3,10 @@ package com.cuetodev.ej3_1.Profesor.infrastructure.controller.dto.output;
 import com.cuetodev.ej3_1.Persona.domain.Persona;
 import com.cuetodev.ej3_1.Profesor.domain.Profesor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class ProfesorOutputDTO {
     private String id_profesor;
     private Persona persona;

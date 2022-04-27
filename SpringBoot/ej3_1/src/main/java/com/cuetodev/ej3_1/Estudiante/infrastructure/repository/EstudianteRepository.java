@@ -3,7 +3,7 @@ package com.cuetodev.ej3_1.Estudiante.infrastructure.repository;
 import com.cuetodev.ej3_1.Estudiante.domain.Estudiante;
 import com.cuetodev.ej3_1.Estudiante.infrastructure.repository.jpa.EstudianteRepositoryJPA;
 import com.cuetodev.ej3_1.Estudiante.infrastructure.repository.port.EstudianteRepositoryPort;
-import com.cuetodev.ej3_1.errorhandling.NotFoundException;
+import com.cuetodev.ej3_1.ErrorHandling.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
