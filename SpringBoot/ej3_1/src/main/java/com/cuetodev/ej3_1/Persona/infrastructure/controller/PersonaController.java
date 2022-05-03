@@ -24,7 +24,9 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/persona")
+// Con esta linea permito peticiones a través de JavaScript desde todos los dominios (CORS)
+@CrossOrigin(origins = "*", methods = RequestMethod.POST)
+@RequestMapping
 public class PersonaController {
 
     @Autowired
@@ -36,7 +38,7 @@ public class PersonaController {
     --------------
     */
 
-    @PostMapping
+    @PostMapping("/addperson")
     public ResponseEntity<?> insertPersona(@RequestBody PersonaInputDTO personaInputDTO) {
         // Cambio mi InputDTO a la entidad Persona
         Persona persona = personaInputDTO.convertInputDtoToEntity();
