@@ -10,8 +10,11 @@ import com.cuetodev.ej3_1.Profesor.application.port.ProfesorPort;
 import com.cuetodev.ej3_1.Profesor.domain.Profesor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -102,5 +105,10 @@ public class PersonaUseCase implements PersonaPort {
     @Override
     public Optional<Profesor> findProfesorByPersonaID(Integer id_persona) {
         return profesorPort.findProfesorByPersonID(id_persona);
+    }
+
+    @Override
+    public List<Persona> getData(HashMap<String, Object> conditions, String orderBy) {
+        return personaRepositoryPort.getData(conditions, orderBy);
     }
 }

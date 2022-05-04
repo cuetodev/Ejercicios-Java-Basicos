@@ -3,6 +3,7 @@ package com.cuetodev.ej3_1.Persona.infrastructure.controller;
 import com.cuetodev.ej3_1.Estudiante.domain.Estudiante;
 import com.cuetodev.ej3_1.Feign.IFeignServer;
 import com.cuetodev.ej3_1.Persona.infrastructure.controller.dto.output.PersonaFullOutPutDTO;
+import com.cuetodev.ej3_1.Persona.infrastructure.repository.port.PersonaRepositoryPort;
 import com.cuetodev.ej3_1.Profesor.domain.Profesor;
 import com.cuetodev.ej3_1.Profesor.infrastructure.controller.dto.output.ProfesorOutputDTO;
 import com.cuetodev.ej3_1.ErrorHandling.NotFoundException;
@@ -12,14 +13,22 @@ import com.cuetodev.ej3_1.Persona.domain.Persona;
 import com.cuetodev.ej3_1.Persona.domain.PersonaList;
 import com.cuetodev.ej3_1.Persona.infrastructure.controller.dto.input.PersonaInputDTO;
 import com.cuetodev.ej3_1.Persona.infrastructure.controller.dto.output.PersonaOutputDTO;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.persistence.EntityManager;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,7 +47,7 @@ public class PersonaController {
     --------------
     */
 
-    @PostMapping("/addperson")
+    @PostMapping("/addPerson")
     public ResponseEntity<?> insertPersona(@RequestBody PersonaInputDTO personaInputDTO) {
         // Cambio mi InputDTO a la entidad Persona
         Persona persona = personaInputDTO.convertInputDtoToEntity();
@@ -139,6 +148,54 @@ public class PersonaController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(personaList, HttpStatus.OK);
+    }
+
+    /*
+    ------------------------
+        CRITERIA BUILDER
+    ------------------------
+    */
+
+    @Autowired
+    EntityManager em;
+
+    @GetMapping("/findPeople")
+    public ResponseEntity<Page<PersonaOutputDTO>> getData(@RequestParam(required = false) String usuario, @RequestParam(required = false) String name, @RequestParam(required = false) String surname, @RequestParam(required = false) @DateTimeFormat(pattern="dd-MM-yyyy") String created_date, @RequestParam(required = false) String condition, @RequestParam(required = false, defaultValue = "noOrder") String orderBy, @RequestParam() int page, @RequestParam(required = false, defaultValue = "10") int size) {
+        HashMap<String, Object> data = new HashMap<>();
+
+        if (usuario != null) data.put("usuario", usuario);
+        if (name != null) data.put("name", name);
+        if (surname != null) data.put("surname", surname);
+        if (condition == null) condition = "greater";
+        if (!condition.equals("greater") && !condition.equals("less") && !condition.equals("equal")) condition = "greater";
+        if (created_date != null) {
+            data.put("created_date", created_date);
+            data.put("condition", condition);
+        }
+        if (!orderBy.equals("noOrder")) {
+            if (orderBy.equals("user")) orderBy = "user";
+            else if (orderBy.equals("name")) orderBy = "name";
+        }
+
+        List<Persona> peopleList = personaPort.getData(data, orderBy);
+        List<PersonaOutputDTO> peopleOutPutDTOList = new ArrayList<>();
+
+        peopleList.forEach(person -> {
+            try {
+                peopleOutPutDTOList.add(new PersonaOutputDTO(person));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        });
+
+        Pageable pageable = PageRequest.of(page, size);
+        int start = (int) pageable.getOffset();
+        int end = (int) (Math.min((start + pageable.getPageSize()), peopleOutPutDTOList.size()));
+        Page<PersonaOutputDTO> pageOutPut
+                = new PageImpl<PersonaOutputDTO>(peopleOutPutDTOList.subList(start, end), pageable, peopleOutPutDTOList.size());
+
+
+        return new ResponseEntity<>(pageOutPut, HttpStatus.OK);
     }
 
     /*
