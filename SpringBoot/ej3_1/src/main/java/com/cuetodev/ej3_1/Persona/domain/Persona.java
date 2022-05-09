@@ -57,6 +57,9 @@ public class Persona {
 
     private Date termination_date;
 
+    @NotNull
+    private Boolean admin;
+
     public void setCreated_date(String date) throws ParseException {
         this.created_date = new SimpleDateFormat("yyyy-MM-dd").parse(date);
     }
@@ -66,7 +69,7 @@ public class Persona {
         return dateFormat.format(this.created_date);
     }
 
-    public Persona(String id, String usuario, String password, String name, String surname, String company_email, String persona_email, String city, Boolean active, Date created_date, String imagen_url, Date termination_date) {
+    public Persona(String id, String usuario, String password, String name, String surname, String company_email, String persona_email, String city, Boolean active, Date created_date, String imagen_url, Date termination_date, Boolean admin) {
         this.id = Integer.parseInt(id);
         this.usuario = usuario;
         this.password = password;
@@ -79,5 +82,6 @@ public class Persona {
         this.created_date = created_date;
         this.imagen_url = imagen_url;
         this.termination_date = termination_date;
+        this.admin = admin;
     }
 }

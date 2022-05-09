@@ -23,6 +23,7 @@ public class PersonaOutputDTO {
     private Date created_date;
     private String imagen_url;
     private Date termination_date;
+    private Boolean admin;
 
     public void setCreated_date(String date) throws ParseException {
         try {
@@ -47,5 +48,6 @@ public class PersonaOutputDTO {
         setCreated_date(persona.getCreated_date());
         setImagen_url(persona.getImagen_url());
         setTermination_date(persona.getTermination_date());
+        setAdmin(persona.getAdmin());
     }
 }
