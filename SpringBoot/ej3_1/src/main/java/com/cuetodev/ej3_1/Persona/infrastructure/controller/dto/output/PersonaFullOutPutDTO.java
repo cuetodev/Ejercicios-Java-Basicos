@@ -27,6 +27,7 @@ public class PersonaFullOutPutDTO {
     private Date termination_date;
     private Estudiante estudiante;
     private Profesor profesor;
+    private Boolean admin;
 
     public void setCreated_date(String date) throws ParseException {
         try {
@@ -51,5 +52,6 @@ public class PersonaFullOutPutDTO {
         setCreated_date(persona.getCreated_date());
         setImagen_url(persona.getImagen_url());
         setTermination_date(persona.getTermination_date());
+        setAdmin(persona.getAdmin());
     }
 }

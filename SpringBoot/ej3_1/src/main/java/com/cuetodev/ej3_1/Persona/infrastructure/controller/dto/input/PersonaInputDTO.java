@@ -23,8 +23,9 @@ public class PersonaInputDTO {
     private Date created_date;
     private String imagen_url;
     private Date termination_date;
+    private Boolean admin;
 
     public Persona convertInputDtoToEntity() {
-        return new Persona(id, usuario, password, name, surname, company_email, persona_email, city, active, created_date, imagen_url, termination_date);
+        return new Persona(id, usuario, password, name, surname, company_email, persona_email, city, active, created_date, imagen_url, termination_date, admin);
     }
 }
