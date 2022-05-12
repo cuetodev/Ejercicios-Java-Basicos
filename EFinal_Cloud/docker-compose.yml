@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mysql
+    container_name: db
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: 'backweb'
+      MYSQL_ROOT_PASSWORD: root
+
+  db2:
+    image: mysql
+    container_name: db2
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: 'backempresa'
+      MYSQL_ROOT_PASSWORD: root
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: backempresa
+    links:
+      - db
+    environment:
+      PMA_HOST: db2
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"
+      
+  phpmyadmin2:
+    image: phpmyadmin
+    container_name: backweb
+    links:
+      - db2
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8082:80"
