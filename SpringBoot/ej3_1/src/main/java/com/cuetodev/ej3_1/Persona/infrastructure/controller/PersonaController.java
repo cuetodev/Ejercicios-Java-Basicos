@@ -156,9 +156,6 @@ public class PersonaController {
     ------------------------
     */
 
-    @Autowired
-    EntityManager em;
-
     @GetMapping("/findPeople")
     public ResponseEntity<Page<PersonaOutputDTO>> getData(@RequestParam(required = false) String usuario, @RequestParam(required = false) String name, @RequestParam(required = false) String surname, @RequestParam(required = false) @DateTimeFormat(pattern="dd-MM-yyyy") String created_date, @RequestParam(required = false) String condition, @RequestParam(required = false, defaultValue = "noOrder") String orderBy, @RequestParam() int page, @RequestParam(required = false, defaultValue = "10") int size) {
         HashMap<String, Object> data = new HashMap<>();

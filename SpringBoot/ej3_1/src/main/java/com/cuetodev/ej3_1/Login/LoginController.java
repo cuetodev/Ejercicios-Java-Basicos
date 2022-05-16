@@ -28,7 +28,7 @@ public class LoginController {
     public ResponseEntity<String> login(@RequestParam("user") String username, @RequestParam("password") String password) throws Exception {
         List<Persona> peopleList = personaPort.findPersonaByUsuario(username);
         if (peopleList.size() == 0) throw new NotFoundException("Usuario " + username + " no encontrado");
-        if (peopleList.size() > 1) throw new UnprocesableException("Usuario amiguo");
+        if (peopleList.size() > 1) throw new UnprocesableException("Usuario ambiguo");
         Persona persona = peopleList.get(0);
         String personaPassword = persona.getPassword();
         if (!personaPassword.equals(password)) throw new UnprocesableException("Credenciales incorrectas");
