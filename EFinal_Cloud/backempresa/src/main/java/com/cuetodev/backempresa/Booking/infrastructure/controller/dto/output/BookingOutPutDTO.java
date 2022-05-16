@@ -18,6 +18,7 @@ public class BookingOutPutDTO {
     private String email;
     private Date date;
     private Float hour;
+    private String status;
 
     public BookingOutPutDTO(Booking booking) throws ParseException {
         if (booking == null) return;
@@ -29,6 +30,7 @@ public class BookingOutPutDTO {
         setEmail(booking.getEmail());
         setDate(booking.getDate());
         setHour(booking.getHour());
+        setStatus(booking.getStatus());
     }
 
 }

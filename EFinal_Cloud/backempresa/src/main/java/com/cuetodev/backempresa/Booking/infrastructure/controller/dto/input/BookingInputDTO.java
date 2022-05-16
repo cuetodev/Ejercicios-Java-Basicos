@@ -21,6 +21,6 @@ public class BookingInputDTO {
     private Float hour;
 
     public Booking convertInputDtoToEntity() {
-        return new Booking(null, city, name, surname, phone, email, date, hour);
+        return new Booking(null, city, name, surname, phone, email, date, hour, null, null);
     }
 }
