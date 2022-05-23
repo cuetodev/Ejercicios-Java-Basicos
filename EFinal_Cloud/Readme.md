@@ -60,7 +60,7 @@ Es importante saber que todos los endpoints llevan seguridad, es decir, sin un t
 
 ---
 
-#### Token
+#### Token - (Empresa)
 
 |Método|URL|Descripción|
 |-|-|-|
@@ -74,7 +74,7 @@ Es importante saber que todos los endpoints llevan seguridad, es decir, sin un t
 
 ---
 
-#### Crear una reserva
+#### Crear una reserva - (Empresa y Web)
 
 `Authorization: Bearer Token`
 
@@ -97,7 +97,7 @@ Es importante saber que todos los endpoints llevan seguridad, es decir, sin un t
 
 ---
 
-#### Listado de reservas
+#### Listado de reservas - (Empresa y Web)
 
 `Authorization: Bearer Token`
 
@@ -142,7 +142,7 @@ Es importante saber que todos los endpoints llevan seguridad, es decir, sin un t
 
 ---
 
-#### Listado de autobuses disponibles
+#### Listado de autobuses disponibles - (Empresa y Web)
 
 `Authorization: Bearer Token`
 
@@ -177,7 +177,7 @@ Es importante saber que todos los endpoints llevan seguridad, es decir, sin un t
 
 ---
 
-#### Listado de correos enviados
+#### Listado de correos enviados - (Empresa)
 
 `Authorization: Bearer Token`
 
@@ -214,7 +214,7 @@ Es importante saber que todos los endpoints llevan seguridad, es decir, sin un t
 
 ---
 
-#### Reenviar un correo
+#### Reenviar un correo - (Empresa)
 
 `Authorization: Bearer Token`
 
