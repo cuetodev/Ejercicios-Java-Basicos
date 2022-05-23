@@ -2,10 +2,11 @@ package com.cuetodev.backempresa.Bus.infrastructure.controller.dto.input;
 
 import com.cuetodev.backempresa.Booking.domain.Booking;
 import com.cuetodev.backempresa.Bus.domain.Bus;
-import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Set;
 
@@ -14,13 +15,13 @@ import java.util.Set;
 public class BusInputDTO {
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "Active can't be null")
     private boolean active;
 
-    @NotNull
+    @NotBlank(message = "City can't be null")
     private String city;
 
-    @NotNull
+    @NotBlank
     private int occupiedSeats;
 
     @NotNull

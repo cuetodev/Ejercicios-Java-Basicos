@@ -32,9 +32,10 @@ public class Bus {
     private Float hour;
 
     @NotNull
+    @Temporal(TemporalType.DATE)
     private Date date;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "booking_id")
     private Set<Booking> bookingList;
 

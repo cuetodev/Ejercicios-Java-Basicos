@@ -4,6 +4,8 @@ import com.cuetodev.backempresa.Bus.domain.Bus;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.text.SimpleDateFormat;
+
 @Data
 @NoArgsConstructor
 public class BusAvailabilityOutputDTO {
@@ -14,7 +16,7 @@ public class BusAvailabilityOutputDTO {
 
     public BusAvailabilityOutputDTO(Bus bus) {
         setCity(bus.getCity());
-        setDepartureDate(bus.getDate().toString());
+        setDepartureDate(new SimpleDateFormat("yyyy-MM-dd").format(bus.getDate()));
         setDepartureHour(bus.getHour());
         setAvailableSeats(40 - bus.getOccupiedSeats());
     }
