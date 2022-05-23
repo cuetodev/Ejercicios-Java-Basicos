@@ -9,6 +9,5 @@ import java.util.Date;
 
 @Repository
 public interface BusRepositoryJPA extends JpaRepository<Bus, Integer> {
-    @Query("SELECT b FROM Bus b where b.city like ?1 AND b.date like ?2 AND b.hour like ?3")
-    public Bus getBusByData(String city, Date date, Float hour);
+    public Bus findByCityAndDateAndHour(String city, Date date, Float hour);
 }

@@ -11,6 +11,5 @@ import java.util.List;
 public interface BusPort {
     public List<BusAvailabilityOutputDTO> getAvailableBuses(HashMap<String, Object> conditions);
     public void createUpdateBus(Bus bus);
-    public Bus getBusByData(String city, Date date, Float hour);
     public List<BookingsByBusOutputDTO> getBookingsByBus(HashMap<String, Object> conditions);
 }

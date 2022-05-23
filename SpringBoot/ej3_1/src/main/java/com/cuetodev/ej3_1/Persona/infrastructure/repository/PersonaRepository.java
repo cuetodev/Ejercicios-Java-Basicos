@@ -3,12 +3,9 @@ package com.cuetodev.ej3_1.Persona.infrastructure.repository;
 import com.cuetodev.ej3_1.ErrorHandling.NotFoundException;
 import com.cuetodev.ej3_1.ErrorHandling.UnprocesableException;
 import com.cuetodev.ej3_1.Persona.domain.Persona;
-import com.cuetodev.ej3_1.Persona.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.cuetodev.ej3_1.Persona.infrastructure.repository.jpa.PersonaRepositoryJPA;
 import com.cuetodev.ej3_1.Persona.infrastructure.repository.port.PersonaRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -21,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class PersonaRepository implements PersonaRepositoryPort {

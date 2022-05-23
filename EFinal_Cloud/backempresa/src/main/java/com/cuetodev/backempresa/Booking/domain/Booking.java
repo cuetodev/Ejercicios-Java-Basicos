@@ -5,6 +5,7 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,7 +21,7 @@ public class Booking {
     private Integer id;
 
     @NotNull
-    private String destinationCity;
+    private String city;
 
     @NotNull
     private String name;
@@ -33,6 +34,7 @@ public class Booking {
     private String email;
 
     @NotNull
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     private Float hour;

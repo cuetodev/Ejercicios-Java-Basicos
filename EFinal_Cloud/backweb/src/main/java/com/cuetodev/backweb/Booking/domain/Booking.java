@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -21,7 +18,7 @@ public class Booking {
     private Integer id;
 
     @NotNull
-    private String destinationCity;
+    private String city;
 
     @NotNull
     private String name;
@@ -34,8 +31,10 @@ public class Booking {
     private String email;
 
     @NotNull
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     private Float hour;
 
+    private String status;
 }

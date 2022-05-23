@@ -36,11 +36,6 @@ public class BusUseCase implements BusPort {
     }
 
     @Override
-    public Bus getBusByData(String city, Date date, Float hour) {
-        return busRepositoryPort.getBusByData(city, date, hour);
-    }
-
-    @Override
     public List<BookingsByBusOutputDTO> getBookingsByBus(HashMap<String, Object> conditions) {
         List<Bus> busesReceived;
         busesReceived = busRepositoryPort.getBookingsByBus(conditions);

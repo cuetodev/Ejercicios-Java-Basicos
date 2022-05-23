@@ -3,7 +3,7 @@ package com.cuetodev.backempresa.Bus.infrastructure.repository;
 import com.cuetodev.backempresa.Bus.domain.Bus;
 import com.cuetodev.backempresa.Bus.infrastructure.repository.jpa.BusRepositoryJPA;
 import com.cuetodev.backempresa.Bus.infrastructure.repository.port.BusRepositoryPort;
-import com.cuetodev.backempresa.ErrorHandling.ErrorOutPutDTO;
+import com.cuetodev.backempresa.shared.ErrorHandling.ErrorOutPutDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -74,6 +74,18 @@ public class BusRepository implements BusRepositoryPort {
                         predicates.add(cb.lessThan(root.<Float>get("hour"),(Float)value));
                     }
                     break;
+                case "equalDate":
+                    Date equalDate;
+                    try {
+                        equalDate = new SimpleDateFormat("yyyy-MM-dd").parse((String) value);
+                    } catch (ParseException e) {
+                        throw new ErrorOutPutDTO(400, "Invalid date format", "Fatal");
+                    }
+                    predicates.add(cb.equal(root.get("date"), equalDate));
+                    break;
+                case "equalHour":
+                    predicates.add(cb.le(root.<Float>get("hour"),(Float)value));
+                    break;
             }
         });
         predicates.add(cb.lessThan(root.<Integer>get("occupiedSeats"),41));
@@ -83,17 +95,14 @@ public class BusRepository implements BusRepositoryPort {
     }
 
     @Override
-    public void createUpdateBus(Bus bus) {
-        busRepositoryJPA.save(bus);
+    public Bus createUpdateBus(Bus bus) {
+        return busRepositoryJPA.saveAndFlush(bus);
     }
 
     @Override
-    public Bus getBusByData(String city, Date date, Float hour) {
-        return busRepositoryJPA.getBusByData(city, date, hour);
+    public Bus findByCityAndDateAndHour(String city, Date date, Float hour) {
+        return busRepositoryJPA.findByCityAndDateAndHour(city, date, hour);
     }
-
-    //todo Juntar el método getAvailableBuses y getBookingsByBus en 1 solo método
-    // lo único que cambia es que en getAvailableBuses tengo el filtro de los asientos
 
     @Override
     public List<Bus> getBookingsByBus(HashMap<String, Object> conditions) {

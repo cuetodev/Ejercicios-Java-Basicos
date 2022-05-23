@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v0")
+@RequestMapping("api/v0/bus")
 public class BusController {
 
     @Autowired
