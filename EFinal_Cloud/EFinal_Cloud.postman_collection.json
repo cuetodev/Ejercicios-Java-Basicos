@@ -130,13 +130,13 @@
 										},
 										{
 											"key": "lowerHour",
-											"value": "8",
+											"value": "7",
 											"description": "Muestra los autobuses que están por encima de esta hora",
 											"disabled": true
 										},
 										{
 											"key": "upperHour",
-											"value": "20",
+											"value": "21",
 											"description": "Muestra los autobuses que están por debajo de esta hora",
 											"disabled": true
 										}
@@ -192,13 +192,13 @@
 										},
 										{
 											"key": "lowerHour",
-											"value": "18",
+											"value": "7",
 											"description": "Muestra los autobuses que están por encima de esta hora",
 											"disabled": true
 										},
 										{
 											"key": "upperHour",
-											"value": "18",
+											"value": "21",
 											"description": "Muestra los autobuses que están por debajo de esta hora",
 											"disabled": true
 										}
@@ -254,12 +254,12 @@
 										},
 										{
 											"key": "lowerHour",
-											"value": "",
+											"value": "7",
 											"disabled": true
 										},
 										{
 											"key": "upperHour",
-											"value": "",
+											"value": "21",
 											"disabled": true
 										}
 									]
@@ -396,13 +396,13 @@
 										},
 										{
 											"key": "lowerHour",
-											"value": "8",
+											"value": "7",
 											"description": "Muestra los autobuses que están por encima de esta hora",
 											"disabled": true
 										},
 										{
 											"key": "upperHour",
-											"value": "20",
+											"value": "21",
 											"description": "Muestra los autobuses que están por debajo de esta hora",
 											"disabled": true
 										}
@@ -458,13 +458,13 @@
 										},
 										{
 											"key": "lowerHour",
-											"value": "18",
+											"value": "7",
 											"description": "Muestra los autobuses que están por encima de esta hora",
 											"disabled": true
 										},
 										{
 											"key": "upperHour",
-											"value": "18",
+											"value": "21",
 											"description": "Muestra los autobuses que están por debajo de esta hora",
 											"disabled": true
 										}
